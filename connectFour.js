@@ -50,7 +50,19 @@ function handleColumnClick(event) {
     // Implement win-checking logic here
   }
 }
-
+// Function to reset the game board
+function resetGame() {
+    // Clear the board array and remove tokens from the UI
+    for (let row = 0; row < ROWS; row++) {
+      for (let col = 0; col < COLS; col++) {
+        board[row][col] = EMPTY_SLOT;
+        const cell = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+        cell.textContent = EMPTY_SLOT;
+      }
+    }
+    currentPlayer = RED; // Reset to the initial player
+  }
+  
 // Event listener for column clicks
 document.getElementById("board").addEventListener("click", handleColumnClick);
 
